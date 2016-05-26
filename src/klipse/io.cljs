@@ -1,5 +1,6 @@
 (ns klipse.io
-    (:import goog.net.XhrIo))
+  (:require [goog.dom :as gdom])
+  (:import goog.net.XhrIo))
 
 (defn no-op [file-url src-cb]
   (print "no-op: " file-url)
@@ -18,3 +19,12 @@
                  (src-cb nil))))
       (catch :default e
         (src-cb nil))))
+
+
+(defn load-js-script!
+  "load a javascript script"
+  [url]
+  (let [element (doto (gdom/createElement "script")
+                  (aset "src" url))]
+    (goog.dom/appendChild js/document.body element)))
+
