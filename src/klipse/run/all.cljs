@@ -2,4 +2,5 @@
   (:require klipse.run.plugin.plugin
             klipse.compiler
             klipse.js_eval
+            klipse.markdown
             klipse.run.app.app))
